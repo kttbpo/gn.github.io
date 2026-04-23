@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>😮😮</title>
+
+<style>
+body{
+    background:#fff0f5;
+    font-family: Georgia, serif;
+    margin:0;
+    text-align:center;
+}
+
+/* FIRST PAGE */
+#cover{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:32px;
+}
+
+/* SECOND PAGE */
+.container{
+    display:none;
+    max-width:600px;
+    margin:0 auto;
+    padding-top:80px;
+}
+
+.top-image{
+    height:100%;
+    width:200px;
+    display:block;
+    margin:0 auto 20px auto;
+    cursor:pointer;
+}
+
+#text{
+    font-size:18px;
+    line-height:1.8;
+    white-space:pre-line;
+}
+</style>
+</head>
+
+<body>
+
+<div id="cover">
+To you!
+<br>
+<br>
+
+(might wanna turn your vol up a bit aswell)
+</div>
+
+
+
+<div class="container" id="main">
+
+<img id="topImage"
+     src="eminem.jpg"
+     class="top-image"
+     onclick="changeImage()">
+
+<div id="text"></div>
+
+</div>
+
+<audio id="music" loop>
+<source src="LANY - you! (Lyrics).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const message = `Hi telle! Ik this may be all so sudden and so unexpected, but js hear me out. 
+
+We've been friends for such a very long time now, and i must say– it really is/was something. 
+
+It's kinda odd how everytime I interact with you js these past few months(yk, nung shs na tayo). Idk if you've noticed(sana hindi), but there's this weird nervousness na lagi 'ko nararamdaman kapag nakakausap kita.
+
+Safe to say now, na I was wrong. May gusto pala ako sayo, telle. Even before pa. Yes, after all these years, ngayon ko lang nasabi(ig I'm good sa tagu-taguan😂). Took a while before I realized na it was not js any "crush" kasi it was this bad, to the point where not even a single soul knows(or mahalata nga man lang eh HAHA). Kaya pala everytime na inaasar nila ako sayo–medj naiinis ako, not because they're wrong, but because they're right.
+
+I'm not expecting anything from you. You could even not respond at all, and I'd totally understand. I just had to get this off my chest after a few freaking years and thought it's now or never, lawl. 
+
+Please don't feel pressured or obligated to respond dahil lang sa mga ginawa 'ko na 'to. You're my friend afterall. I respect you, and whatever you'll feel upon reading this.`;
+
+let i = 0;
+let opened = false;
+
+function type(){
+    if(i < message.length){
+        document.getElementById("text").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(type, 28);
+    }
+}
+
+function changeImage(){
+    const img = document.getElementById("topImage");
+    if(img.src.includes("eminem.jpg")){
+        img.src = "95be2a461518ca4762917bb7c70588fa.jpg";
+    } else {
+        img.src = "63a2da455fe9183d07db9d79308cbefc.jpg";
+    }
+}
+
+/* CLICK ANYWHERE */
+document.addEventListener("click", function(){
+    if(!opened){
+        opened = true;
+        document.getElementById("cover").style.display="none";
+        document.getElementById("main").style.display="block";
+        document.getElementById("music").play();
+        type();
+    }
+});
+</script>
+
+</body>
+</html>
